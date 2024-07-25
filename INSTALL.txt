@@ -1,0 +1,43 @@
+# Running VuneCoin
+
+Server Requirements:
+
+Operating System: Ubuntu 20.04
+Type: Secured VPS 
+RAM: 8 Gigs RAM
+Cores: 4 Processing Core
+Disk: 100 GB SSD
+
+1. Downloading and installing geth:
+
+wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.13.12-02eb36af.tar.gz && tar -xzvf geth-linux-amd64-1.13.12-02eb36af.tar.gz && cd geth-linux-amd64-1.13.12-02eb36af && cp geth /usr/local/bin && cd ../ && rm -rf geth-linux-amd64-1.13.12-02eb36af && rm geth-linux-amd64-1.13.12-02eb36af.tar.gz && geth version
+
+
+
+2. Download MainNet Genesis File:
+
+wget https://github.com/vunecoin/vunecoinnetwork/releases/download/v1.0/vunecoin.json
+
+
+
+3. Initialising Data Directory for MainNet:
+
+wget https://github.com/vunecoin/vunecoinnetwork/releases/download/v1.0/vunecoin.json && geth --datadir "/root/.vunecoin" init vunecoin.json
+
+
+
+
+4. Running ABCN MainNet:
+
+screen geth --datadir "/root/.vunecoin" --networkid 6226  --port 10848 --syncmode 'full' --bootnodes enode://c6d6e58f0edbdb2a23e5b1a817e167ff2ef09e8ef2b821da62d760d255f89ca46dd464704d799380ec06f73b2f2ca4f19e7e878a704ad0dd64584e81c622e1c9@159.89.120.11:10848 2>>/root/.vunecoin/chain.log &
+
+
+
+Web3 Docs:
+
+https://web3js.readthedocs.io/en/v1.2.2/getting-started.html#adding-web3-js
+
+
+RPC Documentation:
+
+https://ethereum.github.io/execution-apis/api-documentation
